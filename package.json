@@ -1,0 +1,23 @@
+{
+  "name": "periodic-table-of-browsers-server",
+  "version": "1.0.0",
+  "description": "Serves browsers and information over the graphql",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meetrics/periodic-table-of-browsers-server.git"
+  },
+  "keywords": [
+    "browsers",
+    "properties"
+  ],
+  "author": "Meetrics",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Meetrics/periodic-table-of-browsers-server/issues"
+  },
+  "homepage": "https://github.com/Meetrics/periodic-table-of-browsers-server#readme"
+}
