@@ -27,7 +27,7 @@ const Query = new GraphQLObjectType({
       type: new GraphQLList(BrowserNames),
       description: "List of browsers",
       resolve: function () {
-        return [{_id: "123", name: "NOW12345678"}]
+        return [{_id: "123", name: "NOW123456789123"}]
       }
     }
   })

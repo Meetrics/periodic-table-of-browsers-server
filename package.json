@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "prestart": "npm run compile",
-    "start": "nodemon .dist/server.js --watch graphQLSchema",
+    "server": "node .dist/server.js",
+    "preserver": "npm run compile",
+    "start": "nodemon --watch graphQLSchema --exec 'npm run server'",
     "compile": "babel ./graphQLSchema -d .dist/graphQLSchema && babel server.js --out-file .dist/server.js"
   },
   "repository": {
