@@ -1,0 +1,6 @@
+{
+  "events": {
+    "start": "npm run compile",
+    "restart": "npm run compile"
+  }
+}
