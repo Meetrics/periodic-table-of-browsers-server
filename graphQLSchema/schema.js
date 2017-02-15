@@ -8,7 +8,8 @@ import {
   GraphQLEnumType,
   GraphQLNonNull,
   GraphQLInterfaceType
-} from "graphql"
+} from "graphql";
+import ImpressionsList from './data/impressions';
 
 const BrowserNames = new GraphQLObjectType({
   name: "BrowserNames",
@@ -27,7 +28,11 @@ const Query = new GraphQLObjectType({
       type: new GraphQLList(BrowserNames),
       description: "List of browsers",
       resolve: function () {
-        return [{_id: "123", name: "NOW123456789123"}]
+        return ImpressionsList.map((impression) => {
+          return {
+            name: impression.userAgent
+          }
+        });
       }
     }
   })
