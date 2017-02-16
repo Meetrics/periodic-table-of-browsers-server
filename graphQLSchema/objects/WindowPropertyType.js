@@ -4,8 +4,17 @@ import {
 } from "graphql";
 
 export default new GraphQLObjectType({
-  name: "WindowProperties",
-  description: "WindowProperties representation",
+  /**
+   * @override
+   */
+  name: "WindowProperty Type",
+  /**
+   * @override
+   */
+  description: "WindowProperty representation",
+  /**
+   * @override
+   */
   fields: () => ({
     name: {type: GraphQLString},
     type: {type: GraphQLString}

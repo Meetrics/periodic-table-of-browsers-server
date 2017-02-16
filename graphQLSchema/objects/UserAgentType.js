@@ -7,8 +7,17 @@ import {
 import Browser from "./Browser";
 
 export default new GraphQLObjectType({
+  /**
+   * @override
+   */
   name: "UserAgent",
+  /**
+   * @override
+   */
   description: "UserAgent representation",
+  /**
+   * @override
+   */
   fields: () => ({
     userAgent: {type: GraphQLString},
     browser: {type: Browser},

@@ -5,8 +5,17 @@ import {
 } from "graphql";
 
 export default new GraphQLObjectType({
-  name: "Browser",
+  /**
+   * @override
+   */
+  name: "BrowserType",
+  /**
+   * @override
+   */
   description: "Browser object",
+  /**
+   * @override
+   */
   fields: () => ({
     id: {type: GraphQLID},
     name: {type: GraphQLString}

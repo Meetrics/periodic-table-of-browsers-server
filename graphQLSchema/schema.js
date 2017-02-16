@@ -17,8 +17,17 @@ import userAgentsQuery from "./queries/userAgentsQuery";
 
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
+    /**
+     * @override
+     */
     name: "PeriodicTableOfBrowsersSchema",
+    /**
+     * @override
+     */
     description: "Root of the Periodic Table of Browsers",
+    /**
+     * @override
+     */
     fields: () => ({
       browsers: browsersQuery,
       userAgents: userAgentsQuery
