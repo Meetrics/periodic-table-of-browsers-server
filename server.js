@@ -22,7 +22,5 @@ module.exports = app.listen(port, function (err) {
     console.log(err)
     return
   }
- /* console.log('graphQLServer is running on port ' + port);
-  //print this only in production as well
-  console.log('graphQLInterface can be found under http://localhost:' + port + resourceName);*/
+  console.log('graphQLServer is running on port ' + port + ', graphQLInterface can be found under http://localhost:' + port + resourceName);
 });
