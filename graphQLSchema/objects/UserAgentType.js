@@ -4,7 +4,7 @@ import {
   GraphQLString,
   GraphQLBoolean
 } from "graphql";
-import Browser from "./Browser";
+import Browser from "./BrowserType";
 
 export default new GraphQLObjectType({
   /**

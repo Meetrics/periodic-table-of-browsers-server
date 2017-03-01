@@ -11,7 +11,7 @@ import {
   GraphQLInterfaceType,
   GraphQLBoolean
 } from "graphql";
-import UserAgent from "./objects/UserAgent";
+import UserAgent from "./objects/UserAgentType";
 import browsersQuery from "./queries/browsersQuery";
 import userAgentsQuery from "./queries/userAgentsQuery";
 
