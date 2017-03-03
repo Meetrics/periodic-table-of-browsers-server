@@ -38,7 +38,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `browsers`.`Browsers` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `userAgent` VARCHAR(1000) NULL,
+  `userAgent` VARCHAR(255) NULL,
   `browser` VARCHAR(64) NULL DEFAULT NULL,
   `version` VARCHAR(8) NULL DEFAULT NULL,
   `mobile` TINYINT(1) NULL DEFAULT NULL,
