@@ -2,13 +2,18 @@
   "name": "periodic-table-of-browsers-server",
   "version": "1.0.0",
   "description": "Serves browsers and information over the graphql",
+  "engines": {
+    "node" : ">=6.11.0"
+  },
   "main": "index.js",
   "scripts": {
     "test": "npm test",
+    "createData": "node .dist/createData.js",
     "server": "node .dist/server.js",
     "preserver": "npm run compile",
     "start": "nodemon --watch graphQLSchema --exec 'npm run server'",
-    "compile": "babel ./graphQLSchema -d .dist/graphQLSchema && babel server.js --out-file .dist/server.js"
+    "compile": "babel ./graphQLSchema -d .dist/graphQLSchema && babel server.js --out-file .dist/server.js",
+    "import": "node utils/db/importData.js"
   },
   "repository": {
     "type": "git",
@@ -34,5 +39,11 @@
     "graphql": "^0.9.1",
     "lodash": "^4.17.4",
     "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "async": "^2.1.5",
+    "mysql": "^2.13.0",
+    "progress": "^1.1.8",
+    "ua-parser-js": "^0.7.12"
   }
 }

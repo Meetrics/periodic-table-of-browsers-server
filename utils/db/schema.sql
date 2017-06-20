@@ -38,16 +38,17 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `browsers`.`Browsers` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `userAgent` VARCHAR(255) NULL,
+  `userAgent` VARCHAR(500) NULL,
   `browser` VARCHAR(64) NULL DEFAULT NULL,
-  `version` VARCHAR(8) NULL DEFAULT NULL,
+  `version` VARCHAR(16) NULL DEFAULT NULL,
   `mobile` TINYINT(1) NULL DEFAULT NULL,
   `os` VARCHAR(64) NULL DEFAULT NULL,
-  `count` INT(11) NULL,
+  `count` INT(11) NULL DEFAULT 0,
   UNIQUE INDEX `userAgent_UNIQUE` (`userAgent` ASC),
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
+MAX_ROWS = 1000
+DEFAULT CHARACTER SET = latin2
 PACK_KEYS = DEFAULT;
 
 
@@ -86,7 +87,6 @@ CREATE TABLE IF NOT EXISTS `browsers`.`Browsers_has_WindowProperties` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
 
 -- -----------------------------------------------------
 -- Table `browsers`.`Browsers_has_DocumentProperties`

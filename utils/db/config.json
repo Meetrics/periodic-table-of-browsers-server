@@ -1,0 +1,11 @@
+{
+  "mySqlConfig": {
+    "port"        : 3306,
+    "host"        : "localhost",
+    "user"        : "root",
+    "password"    : "123456",
+    "database"    : "browsers",
+    "_socketPath"  : "/var/run/mysqld/mysqld.sock"
+  },
+  "jsonPath": ""
+}
