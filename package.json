@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Serves browsers and information over the graphql",
   "engines": {
-    "node" : ">=6.11.0"
+    "node": ">=6.11.0"
   },
   "main": "index.js",
   "scripts": {

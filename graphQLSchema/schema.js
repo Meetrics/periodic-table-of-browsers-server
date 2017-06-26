@@ -13,6 +13,8 @@ import {
 } from "graphql";
 import UserAgent from "./objects/UserAgentType";
 import browsersQuery from "./queries/browsersQuery";
+import windowPropertiesQuery from "./queries/windowPropertiesQuery";
+import documentPropertiesQuery from "./queries/documentPropertiesQuery";
 import userAgentsQuery from "./queries/userAgentsQuery";
 
 export default new GraphQLSchema({
@@ -30,7 +32,9 @@ export default new GraphQLSchema({
      */
     fields: () => ({
       browsers: browsersQuery,
-      userAgents: userAgentsQuery
+      userAgents: userAgentsQuery,
+      windowProperties: windowPropertiesQuery,
+      documentProperties: documentPropertiesQuery
     })
   })
 });

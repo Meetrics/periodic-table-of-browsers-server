@@ -19,10 +19,7 @@ export default new GraphQLObjectType({
    * @override
    */
   fields: () => ({
-    userAgent: {type: GraphQLString},
-    browser: {type: Browser},
-    version: {type: GraphQLString},
-    mobile: {type: GraphQLBoolean},
-    os: {type: GraphQLString}
+    id: {type: GraphQLID},
+    userAgent: {type: GraphQLString}
   })
 });
