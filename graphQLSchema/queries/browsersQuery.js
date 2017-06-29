@@ -1,7 +1,10 @@
-import {GraphQLList} from "graphql";
-import ImpressionsList from '../data/impressions';
-import BrowserType from '../objects/BrowserType';
-import _ from 'lodash';
+import {
+  GraphQLList,
+  GraphQLString
+} from "graphql";
+import ImpressionsList from "../data/impressions";
+import BrowserType from "../objects/BrowserType";
+import _ from "lodash";
 
 const BROWSER_REGEX = /(Firefox|Safari|Chrome|Chromium|Opera|Trident|MSIE )\/?/;
 
@@ -14,14 +17,27 @@ export default {
    * @override
    */
   description: "List of browsers",
+  args: {
+    nameHas: {
+      type: GraphQLString
+    }
+  },
   /**
    * @override
    */
-  resolve: () => {
-    return _.uniq(ImpressionsList.map((impression) => {
+  resolve: (root, {nameHas}) => {
+    let browsers = ImpressionsList.map((impression) => {
       let match = impression.userAgent.match(BROWSER_REGEX);
       return match && match[1];
-    }).filter(a => !!a)).map((name) => {return {name}});
+    });
+
+    browsers = _.uniq(browsers);
+
+    let matchedBrowsers = _.filter(browsers, function (browser) {
+      return browser.search(nameHas) !== -1;
+    });
+
+    return matchedBrowsers.map((name) => { return { name }; });
   }
 }
 

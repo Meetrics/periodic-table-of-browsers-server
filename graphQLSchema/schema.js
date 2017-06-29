@@ -1,17 +1,7 @@
 import {
-  GraphQLList,
   GraphQLObjectType,
-  GraphQLSchema,
-  GraphQLID,
-  GraphQLString,
-  GraphQLInt,
-  GraphQLFloat,
-  GraphQLEnumType,
-  GraphQLNonNull,
-  GraphQLInterfaceType,
-  GraphQLBoolean
+  GraphQLSchema
 } from "graphql";
-import UserAgent from "./objects/UserAgentType";
 import browsersQuery from "./queries/browsersQuery";
 import windowPropertiesQuery from "./queries/windowPropertiesQuery";
 import documentPropertiesQuery from "./queries/documentPropertiesQuery";

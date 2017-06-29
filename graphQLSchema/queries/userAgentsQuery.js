@@ -1,7 +1,7 @@
 import {GraphQLList} from "graphql";
-import ImpressionsList from '../data/impressions';
-import UserAgentType from '../objects/UserAgentType';
-import _ from 'lodash';
+import ImpressionsList from "../data/impressions";
+import UserAgentType from "../objects/UserAgentType";
+import _ from "lodash";
 
 export default {
   /**
@@ -20,7 +20,7 @@ export default {
       return {
         id: property.id,
         userAgent: property.userAgent
-      }
+      };
     }));
   }
 }

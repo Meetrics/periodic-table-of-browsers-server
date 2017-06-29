@@ -1,8 +1,7 @@
 import {
   GraphQLObjectType,
   GraphQLID,
-  GraphQLString,
-  GraphQLBoolean
+  GraphQLString
 } from "graphql";
 import Browser from "./BrowserType";
 
