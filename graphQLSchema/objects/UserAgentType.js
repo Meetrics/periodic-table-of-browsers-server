@@ -1,7 +1,8 @@
 import {
   GraphQLObjectType,
   GraphQLID,
-  GraphQLString
+  GraphQLString,
+  GraphQLBoolean
 } from "graphql";
 import Browser from "./BrowserType";
 
@@ -19,6 +20,10 @@ export default new GraphQLObjectType({
    */
   fields: () => ({
     id: {type: GraphQLID},
-    userAgent: {type: GraphQLString}
+    userAgent: {type: GraphQLString},
+    browser: {type: Browser},
+    version: {type: GraphQLString},
+    mobile: {type: GraphQLBoolean},
+    os: {type: GraphQLString}
   })
 });
