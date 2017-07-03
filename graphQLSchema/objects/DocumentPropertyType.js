@@ -1,4 +1,5 @@
 import {
+  GraphQLID,
   GraphQLObjectType,
   GraphQLString,
 } from "graphql";
@@ -16,6 +17,7 @@ export default new GraphQLObjectType({
    * @override
    */
   fields: () => ({
+    id: {type: GraphQLID},
     name: {type: GraphQLString},
     type: {type: GraphQLString}
   })
