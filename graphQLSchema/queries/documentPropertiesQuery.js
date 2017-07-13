@@ -5,7 +5,6 @@ import {
 } from "graphql";
 import Db from '../data/db';
 import DocumentPropertyType from "../objects/DocumentPropertyType";
-import _ from "lodash";
 
 export default {
   /**

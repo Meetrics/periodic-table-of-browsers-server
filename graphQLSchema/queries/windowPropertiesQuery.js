@@ -5,7 +5,6 @@ import {
 } from "graphql";
 import Db from "../data/db";
 import WindowPropertyType from "../objects/WindowPropertyType";
-import _ from "lodash";
 
 export default {
   /**

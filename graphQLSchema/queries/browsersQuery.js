@@ -1,9 +1,11 @@
 import {
   GraphQLList,
-  GraphQLString
+  GraphQLString,
+  GraphQLID,
+  GraphQLBoolean
 } from "graphql";
+import Db from '../data/db';
 import BrowserType from "../objects/BrowserType";
-import _ from "lodash";
 
 
 export default {
@@ -16,14 +18,18 @@ export default {
    */
   description: "List of browsers",
   args: {
-    nameHas: {
-      type: GraphQLString
-    }
+    id: {type: GraphQLID},
+    userAgent: {type: GraphQLString},
+    browser: {type: GraphQLString},
+    version: {type: GraphQLString},
+    mobile: {type: GraphQLBoolean},
+    os: {type: GraphQLString}
   },
   /**
    * @override
    */
   resolve: (root, args) => {
+    console.log(args)
     return Db.models.Browsers.findAll({where: args});
   }
 }

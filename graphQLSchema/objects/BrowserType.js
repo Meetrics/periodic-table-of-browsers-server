@@ -1,7 +1,8 @@
 import {
   GraphQLObjectType,
   GraphQLID,
-  GraphQLString
+  GraphQLString,
+  GraphQLBoolean
 } from "graphql";
 
 export default new GraphQLObjectType({
@@ -18,6 +19,10 @@ export default new GraphQLObjectType({
    */
   fields: () => ({
     id: {type: GraphQLID},
-    name: {type: GraphQLString}
+    userAgent: {type: GraphQLString},
+    browser: {type: GraphQLString},
+    version: {type: GraphQLString},
+    mobile: {type: GraphQLBoolean},
+    os: {type: GraphQLString}
   })
 });

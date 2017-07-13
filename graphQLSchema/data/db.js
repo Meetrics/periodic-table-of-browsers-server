@@ -11,7 +11,23 @@ const Conn = new Sequelize(
 );
 
 const Browsers = Conn.define("Browsers", {
-  name: {
+  userAgent: {
+    type: Sequelize.UUID,
+    allowNull: false
+  },
+  browser: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  version: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  mobile: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false
+  },
+  os: {
     type: Sequelize.STRING,
     allowNull: false
   }
@@ -33,32 +49,6 @@ const Browsers_has_DocumentProperties = Conn.define("Browsers_has_DocumentProper
 });
 
 const Browsers_has_WindowProperties = Conn.define("Browsers_has_WindowProperties", {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  type: {
-    type: Sequelize.STRING,
-    allowNull: false 
-  }
-}, {
-  timestamps: false
-});
-
-const BrowserVersions = Conn.define("BrowserVersions", {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  type: {
-    type: Sequelize.STRING,
-    allowNull: false 
-  }
-}, {
-  timestamps: false
-});
-
-const UserAgents = Conn.define("UserAgents", {
   name: {
     type: Sequelize.STRING,
     allowNull: false
