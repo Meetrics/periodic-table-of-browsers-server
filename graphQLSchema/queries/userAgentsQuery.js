@@ -1,7 +1,7 @@
 import {GraphQLList} from "graphql";
-import ImpressionsList from "../data/impressions";
 import UserAgentType from "../objects/UserAgentType";
 import _ from "lodash";
+import Db from '../data/db';
 
 export default {
   /**
@@ -15,12 +15,7 @@ export default {
   /**
    * @override
    */
-  resolve:() => {
-    return _.uniq(ImpressionsList.map((property) => {
-      return {
-        id: property.id,
-        userAgent: property.userAgent
-      };
-    }));
+  resolve: (root, args) => {
+    return Db.models.UserAgents.findAll({where: args});
   }
 }
