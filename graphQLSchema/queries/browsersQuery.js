@@ -29,7 +29,6 @@ export default {
    * @override
    */
   resolve: (root, args) => {
-    console.log(args)
     return Db.models.Browsers.findAll({where: args});
   }
 }

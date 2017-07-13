@@ -36,12 +36,17 @@ const Browsers = Conn.define("Browsers", {
 });
 
 const Browsers_has_DocumentProperties = Conn.define("Browsers_has_DocumentProperties", {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
+  Browsers_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    primaryKey: true
   },
-  type: {
-    type: Sequelize.STRING,
+  DocumentProperties_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false 
+  },
+  count: {
+    type: Sequelize.INTEGER,
     allowNull: false 
   }
 }, {
@@ -49,38 +54,17 @@ const Browsers_has_DocumentProperties = Conn.define("Browsers_has_DocumentProper
 });
 
 const Browsers_has_WindowProperties = Conn.define("Browsers_has_WindowProperties", {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
+  Browsers_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    primaryKey: true
   },
-  type: {
-    type: Sequelize.STRING,
+  WindowProperties_id: {
+    type: Sequelize.INTEGER,
     allowNull: false 
-  }
-}, {
-  timestamps: false
-});
-
-const UserAgentToDocumentProperties = Conn.define("UserAgentToDocumentProperties", {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
   },
-  type: {
-    type: Sequelize.STRING,
-    allowNull: false 
-  }
-}, {
-  timestamps: false
-});
-
-const UserAgentToWindowProperties = Conn.define("UserAgentToWindowProperties", {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  type: {
-    type: Sequelize.STRING,
+  count: {
+    type: Sequelize.INTEGER,
     allowNull: false 
   }
 }, {

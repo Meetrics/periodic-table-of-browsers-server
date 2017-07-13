@@ -16,15 +16,9 @@ export default {
    */
   description: "List of all document properties",
   args: {
-    id: {
-      type: GraphQLInt
-    },
-    name: {
-      type: GraphQLString
-    },
-    type: {
-      type: GraphQLString
-    }
+    id: {type: GraphQLInt},
+    name: {type: GraphQLString},
+    type: {type: GraphQLString}
   },
   /**
    * @override

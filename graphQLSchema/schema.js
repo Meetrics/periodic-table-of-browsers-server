@@ -5,7 +5,8 @@ import {
 import browsersQuery from "./queries/browsersQuery";
 import windowPropertiesQuery from "./queries/windowPropertiesQuery";
 import documentPropertiesQuery from "./queries/documentPropertiesQuery";
-import userAgentsQuery from "./queries/userAgentsQuery";
+import browsers_has_DocumentPropertiesQuery from "./queries/browsers_has_DocumentPropertiesQuery";
+import browsers_has_WindowPropertiesQuery from "./queries/browsers_has_WindowPropertiesQuery";
 
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -22,7 +23,8 @@ export default new GraphQLSchema({
      */
     fields: () => ({
       browsers: browsersQuery,
-      userAgents: userAgentsQuery,
+      browsers_has_DocumentProperties: browsers_has_DocumentPropertiesQuery,
+      browsers_has_WindowProperties: browsers_has_WindowPropertiesQuery,
       windowProperties: windowPropertiesQuery,
       documentProperties: documentPropertiesQuery
     })
