@@ -6,13 +6,16 @@ const Conn = new Sequelize(
   "123456",
   {
     dialect: "mysql",
-    host: "localhost"
+    host: "localhost",
+    define: {
+      timestamps: false 
+    }
   }
 );
 
 const Browsers = Conn.define("Browsers", {
   userAgent: {
-    type: Sequelize.UUID,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   browser: {
@@ -31,8 +34,6 @@ const Browsers = Conn.define("Browsers", {
     type: Sequelize.STRING,
     allowNull: false
   }
-}, {
-  timestamps: false
 });
 
 const Browsers_has_DocumentProperties = Conn.define("Browsers_has_DocumentProperties", {
@@ -49,8 +50,6 @@ const Browsers_has_DocumentProperties = Conn.define("Browsers_has_DocumentProper
     type: Sequelize.INTEGER,
     allowNull: false 
   }
-}, {
-  timestamps: false
 });
 
 const Browsers_has_WindowProperties = Conn.define("Browsers_has_WindowProperties", {
@@ -67,8 +66,6 @@ const Browsers_has_WindowProperties = Conn.define("Browsers_has_WindowProperties
     type: Sequelize.INTEGER,
     allowNull: false 
   }
-}, {
-  timestamps: false
 });
 
 const DocumentProperties = Conn.define("DocumentProperties", {
@@ -80,8 +77,6 @@ const DocumentProperties = Conn.define("DocumentProperties", {
     type: Sequelize.STRING,
     allowNull: false 
   }
-}, {
-  timestamps: false
 });
 
 const WindowProperties = Conn.define("WindowProperties", {
@@ -93,8 +88,6 @@ const WindowProperties = Conn.define("WindowProperties", {
     type: Sequelize.STRING,
     allowNull: false
   }
-}, {
-  timestamps: false
 });
 
 Conn.sync();
