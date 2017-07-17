@@ -12,15 +12,15 @@ app.use(cors());
 
 app.use(resourceName, graphqlHTTP({
   schema: Schema,
-  //enables browser interface for performing queries, should be disbaled in production
+  //enables browser interface for performing queries, should be disabled in production
   graphiql: true
 }));
 
 
 module.exports = app.listen(port, function (err) {
   if (err) {
-    console.log(err)
-    return
+    console.log(err);
+    return;
   }
   console.log('graphQLServer is running on port ' + port + ', graphQLInterface can be found under http://localhost:' + port + resourceName);
 });

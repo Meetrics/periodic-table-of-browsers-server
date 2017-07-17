@@ -1,12 +1,12 @@
 import {
   GraphQLList,
-  GraphQLString
+  GraphQLString,
+  GraphQLID,
+  GraphQLBoolean
 } from "graphql";
-import ImpressionsList from "../data/impressions";
+import Db from '../data/db';
 import BrowserType from "../objects/BrowserType";
-import _ from "lodash";
 
-const BROWSER_REGEX = /(Firefox|Safari|Chrome|Chromium|Opera|Trident|MSIE )\/?/;
 
 export default {
   /**
@@ -18,26 +18,18 @@ export default {
    */
   description: "List of browsers",
   args: {
-    nameHas: {
-      type: GraphQLString
-    }
+    id: {type: GraphQLID},
+    userAgent: {type: GraphQLString},
+    browser: {type: GraphQLString},
+    version: {type: GraphQLString},
+    mobile: {type: GraphQLBoolean},
+    os: {type: GraphQLString}
   },
   /**
    * @override
    */
-  resolve: (root, {nameHas}) => {
-    let browsers = ImpressionsList.map((impression) => {
-      let match = impression.userAgent.match(BROWSER_REGEX);
-      return match && match[1];
-    });
-
-    browsers = _.uniq(browsers);
-
-    let matchedBrowsers = _.filter(browsers, function (browser) {
-      return browser.search(nameHas) !== -1;
-    });
-
-    return matchedBrowsers.map((name) => { return { name }; });
+  resolve: (root, args) => {
+    return Db.models.Browsers.findAll({where: args});
   }
 }
 
