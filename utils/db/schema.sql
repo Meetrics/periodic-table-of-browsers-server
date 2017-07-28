@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `browsers`.`Browsers` (
   `mobile` TINYINT(1) NULL DEFAULT NULL,
   `os` VARCHAR(64) NULL DEFAULT NULL,
   `count` INT(11) NULL DEFAULT 0,
-  UNIQUE INDEX `userAgent_UNIQUE` (`userAgent` ASC),
+  UNIQUE INDEX `browser_unique` (`browser`, `version`, `mobile`, `os`),
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 MAX_ROWS = 1000

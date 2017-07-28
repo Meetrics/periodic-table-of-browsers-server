@@ -48,8 +48,9 @@ module.exports = {
    * @param {string} userAgentText
    * @return {string}
    */
-  buildBrowsersSelectQuery: function (userAgentText) {
-    return `SELECT * FROM Browsers WHERE userAgent='${userAgentText}';`;
+  buildBrowsersSelectQuery: function (userAgentData) {
+    const {browser, version, mobile, os} = this.buildBrowserInfo(userAgentData);
+    return `SELECT * FROM Browsers WHERE browser='${browser}' AND version='${version}' AND mobile='${mobile}' AND os='${os}';`;
   },
   /**
    * select data from WindowProperties table by name
@@ -92,5 +93,20 @@ module.exports = {
     return `INSERT INTO Browsers_has_DocumentProperties (Browsers_id, DocumentProperties_id, count)
       VALUES ('${browserId}', '${documentPropertyId}', '${INITIAL_PROPERTY_COUNT}')
       ON DUPLICATE KEY UPDATE count=count+1;`;
+
+  },
+  /**
+   * Collects browser information from userAgentData
+   * 
+   * @param {Object} userAgentData
+   * @return {Object}
+   */
+  buildBrowserInfo: function (userAgentData) {
+    var browser = userAgentData.browser.name,
+      version = userAgentData.browser.major,
+      os = userAgentData.os.name,
+      mobile = !!(userAgentData.device.type && userAgentData.device.type === "mobile");
+        
+    return {browser, version, mobile, os};
   }
 };
