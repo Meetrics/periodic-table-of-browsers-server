@@ -24,7 +24,6 @@ var jsonToMysql = {
   /**
    * Variables used for caching
    */
-  browserCache: {},
   userAgentParserCache: {},
   /**
    * Entry point
@@ -188,8 +187,6 @@ var jsonToMysql = {
       if (!browserId) {
         return Promise.resolve();
       }
-
-      this.browserCache[browserId] = true;
 
       return Promise.all([
         // Document properties
