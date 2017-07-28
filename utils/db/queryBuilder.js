@@ -13,10 +13,7 @@ module.exports = {
    * @return {string}
    */
   buildBrowsersInsertQuery: function (userAgentData, userAgentText) {
-    var browser = userAgentData.browser.name,
-      version = userAgentData.browser.major,
-      mobile = !!(userAgentData.device.type && userAgentData.device.type === "mobile"),
-      os = userAgentData.os.name;
+    const {browser, version, mobile, os} = this.buildBrowserInfo(userAgentData);
 
     return `INSERT INTO Browsers (userAgent, browser, version, mobile, os, count)
       VALUES ('${userAgentText}','${browser}','${version}',${mobile},'${os}',${INITIAL_PROPERTY_COUNT})
@@ -50,7 +47,7 @@ module.exports = {
    */
   buildBrowsersSelectQuery: function (userAgentData) {
     const {browser, version, mobile, os} = this.buildBrowserInfo(userAgentData);
-    return `SELECT * FROM Browsers WHERE browser='${browser}' AND version='${version}' AND mobile='${mobile}' AND os='${os}';`;
+    return `SELECT * FROM Browsers WHERE browser='${browser}' AND version='${version}' AND mobile=${mobile} AND os='${os}';`;
   },
   /**
    * select data from WindowProperties table by name
