@@ -24,7 +24,6 @@ var jsonToMysql = {
   /**
    * Variables used for caching
    */
-  browserCache: {},
   userAgentParserCache: {},
   /**
    * Entry point
@@ -176,20 +175,18 @@ var jsonToMysql = {
    * @return {Promise}
    */
   insertBrowsersWithPropertiesRecord: function (entry) {
-    var userAgentText = entry.userAgent;
+    var userAgentData = this.getUserAgentData(entry.userAgent);
 
-    return this.executeSqlQuery(queryBuilder.buildBrowsersSelectQuery(userAgentText)).then(results => {
+    return this.executeSqlQuery(queryBuilder.buildBrowsersSelectQuery(userAgentData)).then(results => {
       var browserId;
-
+      
       if (results && results.length) {
         browserId = results[0].id;
       }
 
-      if (!browserId || this.browserCache[browserId]) {
+      if (!browserId) {
         return Promise.resolve();
       }
-
-      this.browserCache[browserId] = true;
 
       return Promise.all([
         // Document properties
