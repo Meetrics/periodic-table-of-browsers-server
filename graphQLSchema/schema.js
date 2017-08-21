@@ -3,6 +3,7 @@ import {
   GraphQLSchema
 } from "graphql";
 import browsersQuery from "./queries/browsersQuery";
+import browsersUniqQuery from "./queries/browsersUniqQuery";
 import windowPropertiesQuery from "./queries/windowPropertiesQuery";
 import documentPropertiesQuery from "./queries/documentPropertiesQuery";
 import browsers_has_DocumentPropertiesQuery from "./queries/browsers_has_DocumentPropertiesQuery";
@@ -23,6 +24,7 @@ export default new GraphQLSchema({
      */
     fields: () => ({
       browsers: browsersQuery,
+      browsersUniq: browsersUniqQuery,
       browsers_has_DocumentProperties: browsers_has_DocumentPropertiesQuery,
       browsers_has_WindowProperties: browsers_has_WindowPropertiesQuery,
       windowProperties: windowPropertiesQuery,
