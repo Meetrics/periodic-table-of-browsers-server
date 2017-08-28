@@ -8,7 +8,7 @@ import Db from '../data/db';
 import BrowserUniqType from "../objects/BrowserUniqType";
 
 const browsersToIterate = ["Chrome", "Firefox", "Safari", "IE", "Opera"];
-const propertyToGet = "versions";
+const propertiesToGet = ["id", "version"];
 
 export default {
   /**
@@ -29,16 +29,14 @@ export default {
 
       browsersToIterate.forEach(browserName => {
         deferredArr[deferredArr.length] = Db.models.Browsers.findAll({
-          attributes: [propertyToGet],
+          attributes: propertiesToGet,
           where: {
             browser: browserName
           }
-        }).then(versions => {
+        }).then(function (versions) {
           resultArr.push({
-            browser: {
-              name: browserName,
-              versions: versions
-            }
+            name: browserName,
+            versions: versions
           });
         });
       });

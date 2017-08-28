@@ -13,28 +13,21 @@ export default new GraphQLObjectType({
   /**
    * @override
    */
-  description: "Browser object",
+  description: "Browser uniq object",
   /**
    * @override
    */
   fields: () => ({
-    browser: {
-      type: new GraphQLObjectType({
-        name: "Browser",
-        description: "Browser uniq description",
+    name: {type: GraphQLString},
+    versions: {
+      type: new GraphQLList(new GraphQLObjectType({
+        name: "BrowserVersions",
+        description: "Browser versions description",
         fields: () => ({
-          name: {type: GraphQLString},
-          versions: {
-            type: new GraphQLList(new GraphQLObjectType({
-              name: "BrowserVersions",
-              description: "Browser versions description",
-              fields: () => ({
-                version: {type: GraphQLString}
-              })
-            }))
-          }
+          version: {type: GraphQLString},
+          id: {type: GraphQLID}
         })
-      })
+      }))
     }
   })
 });
